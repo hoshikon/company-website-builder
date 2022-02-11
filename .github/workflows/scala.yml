@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: '/hoshikon/pages'
+          ref: 'pages'
       - name: Commit to branch
         run: |
           git config --global user.name '${{ github.event.pusher.name }}'
