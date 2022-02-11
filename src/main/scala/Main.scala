@@ -10,9 +10,9 @@ object Main extends IOApp with StrictLogging {
 
   override def run(args: List[String]): IO[ExitCode] = {
     for {
-      htmlPath <- IO(Paths.get("./html"))
-      htmlDir <- createHtmlDir(htmlPath)
-      index <- IO(Files.createFile(htmlPath.resolve("index.html")).toFile)
+      docsPath <- IO(Paths.get("./docs"))
+      docsDir <- createHtmlDir(docsPath)
+      index <- IO(Files.createFile(docsPath.resolve("index.html")).toFile)
       html = Home()
       _ <- Resource.make(IO.blocking(new FileOutputStream(index)))(fos => IO.blocking(fos.close())).use(fos => IO(fos.write(html.render.getBytes())))
       done = ExitCode.Success
