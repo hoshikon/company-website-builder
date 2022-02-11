@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -17,3 +16,19 @@ jobs:
         distribution: 'temurin'
     - name: Run build
       run: ./build.sh
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Commit to branch
+        run: |
+          git config --global user.name '${{ github.event.pusher.name }}'
+          git config --global user.email '${{ github.event.pusher.email }}'
+          git stash
+          git checkout origin pages
+          git pull -r
+          ./run.sh
+          git add docs/.
+          git commit -m "update docs"
+          git push
