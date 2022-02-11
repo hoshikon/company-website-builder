@@ -25,8 +25,8 @@ jobs:
         run: |
           git config --global user.name '${{ github.event.pusher.name }}'
           git config --global user.email '${{ github.event.pusher.email }}'
-          git stash
-          git checkout origin pages
+          git remote add origin git@github.com:hoshikon/${{ github.repository }}
+          git checkout pages
           git pull -r
           ./run.sh
           git add docs/.
