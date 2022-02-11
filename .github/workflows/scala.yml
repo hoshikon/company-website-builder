@@ -29,6 +29,6 @@ jobs:
           git config --global user.email '${{ github.event.pusher.email }}'
           git pull -r
           ./run.sh
-          git add docs/.
+          git add ./docs/.
           git commit -m "update docs"
           git push
