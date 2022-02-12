@@ -18,12 +18,13 @@ jobs:
       run: ./build.sh
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           ref: 'pages'
-      - name: Commit to branch
+      - name: update branch
         run: |
           git config --global user.name '${{ github.event.pusher.name }}'
           git config --global user.email '${{ github.event.pusher.email }}'
