@@ -29,7 +29,7 @@ jobs:
           git config --global user.name '${{ github.event.pusher.name }}'
           git config --global user.email '${{ github.event.pusher.email }}'
           git fetch origin main
-          git rebase origin/main
+          git rebase -v origin/main
           ./run.sh
           git add ./docs/.
           git commit -m "update docs"
