@@ -1,5 +1,6 @@
 import cats.effect.{ExitCode, IO, IOApp, Resource}
 import com.typesafe.scalalogging.StrictLogging
+import css.Style
 import html.Home
 
 import java.io.{File, FileOutputStream}
@@ -13,8 +14,10 @@ object Main extends IOApp with StrictLogging {
       docsPath <- IO(Paths.get("./docs"))
       docsDir <- createHtmlDir(docsPath)
       index <- IO(Files.createFile(docsPath.resolve("index.html")).toFile)
-      html = Home()
+      style <- IO(Files.createFile(docsPath.resolve("style.css")).toFile)
+      html = Home("SamuraiDev")
       _ <- Resource.make(IO.blocking(new FileOutputStream(index)))(fos => IO.blocking(fos.close())).use(fos => IO(fos.write(html.render.getBytes())))
+      _ <- Resource.make(IO.blocking(new FileOutputStream(style)))(fos => IO.blocking(fos.close())).use(fos => IO(fos.write(Style.styleSheetText.getBytes())))
       done = ExitCode.Success
     } yield done
   }
@@ -34,4 +37,5 @@ object Main extends IOApp with StrictLogging {
 // company name
 // what we do
 // and other stuff
+// A Secure, High-performance, and Modular system for you.
 }
