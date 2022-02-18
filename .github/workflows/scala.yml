@@ -30,6 +30,7 @@ jobs:
           git config --global user.email '${{ github.event.pusher.email }}'
           git fetch origin main
           git pull -r origin main
+          git pull -r
           ./run.sh
           git add ./docs/.
           git commit -m "update docs"
