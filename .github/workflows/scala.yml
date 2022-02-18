@@ -28,7 +28,9 @@ jobs:
         run: |
           git config --global user.name '${{ github.event.pusher.name }}'
           git config --global user.email '${{ github.event.pusher.email }}'
+          echo 'fetch'
           git fetch origin main
+          echo 'rebase'
           git rebase -v origin/main
           git add .
           git rebase --continue
