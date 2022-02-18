@@ -35,6 +35,7 @@ object Main extends IOApp with StrictLogging {
 // breadcrumbs
 // nav bar
 // company name
+// display text
 // what we do
 // and other stuff
 // A Secure, High-performance, and Modular system for you.
