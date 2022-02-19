@@ -30,6 +30,7 @@ jobs:
           git config --global user.name '${{ github.event.pusher.name }}'
           git config --global user.email '${{ github.event.pusher.email }}'
           git status
+          git fetch
           git pull -r
           git branch -v -a
           echo 'rebase'
