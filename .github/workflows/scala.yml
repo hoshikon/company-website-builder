@@ -35,8 +35,8 @@ jobs:
           git branch -v -a
           git checkout main
           git checkout pages
-          echo 'rebase'
-          git rebase -v main
+          echo 'merge'
+          git merge -v main --no-edit
           ./run.sh
           echo 'add'
           git add ./docs/.
