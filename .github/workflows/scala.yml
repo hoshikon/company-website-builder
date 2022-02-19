@@ -35,6 +35,9 @@ jobs:
           echo 'rebase'
           git rebase -v origin/main
           ./run.sh
+          echo 'add'
           git add ./docs/.
+          echo 'commit'
           git commit -m "update docs"
+          echo 'push'
           git push -f
