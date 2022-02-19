@@ -35,7 +35,7 @@ jobs:
           git branch -v -a
           echo 'rebase'
           git rebase -v origin/main
-          git rebase --skip
+          git switch -
           ./run.sh
           echo 'add'
           git add ./docs/.
