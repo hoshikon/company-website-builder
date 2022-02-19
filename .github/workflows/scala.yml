@@ -41,6 +41,6 @@ jobs:
           git add -A
           git status
           echo 'commit'
-          git commit -m "update docs"
+          git commit -m "update docs" --allow-empty
           echo 'push'
           git push -f
