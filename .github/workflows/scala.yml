@@ -33,9 +33,10 @@ jobs:
           git fetch
           git pull -r
           git branch -v -a
+          git checkout main
+          git checkout pages
           echo 'rebase'
-          git rebase -v origin/main
-          git switch -
+          git rebase -v main
           ./run.sh
           echo 'add'
           git add ./docs/.
