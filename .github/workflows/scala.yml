@@ -30,8 +30,9 @@ jobs:
           git config --global user.email '${{ github.event.pusher.email }}'
           git status
           git pull -r
+          git branch -v -a
           echo 'merge'
-          git merge -v main --no-edit
+          git merge -v origin/main --no-edit
           ./run.sh
           git add ./docs/.
           git commit -m "update docs"
