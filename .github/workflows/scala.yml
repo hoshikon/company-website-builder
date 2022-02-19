@@ -38,7 +38,7 @@ jobs:
           git merge -v main --no-edit
           ./run.sh
           ls docs
-          git add ./docs/.
+          git add .
           git status
           echo 'commit'
           git commit -m "update docs"
