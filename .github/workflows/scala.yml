@@ -35,12 +35,11 @@ jobs:
           git branch -v -a
           git checkout main
           git checkout pages
-          echo 'merge'
           git merge -v main --no-edit
           ./run.sh
-          echo 'add'
           ls docs
           git add ./docs/.
+          git status
           echo 'commit'
           git commit -m "update docs"
           echo 'push'
