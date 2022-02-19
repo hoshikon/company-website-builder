@@ -30,8 +30,8 @@ jobs:
           git config --global user.email '${{ github.event.pusher.email }}'
           git status
           git pull -r
-          echo 'rebase'
-          git rebase -v main --no-edit
+          echo 'merge'
+          git merge -v main --no-edit
           ./run.sh
           git add ./docs/.
           git commit -m "update docs"
