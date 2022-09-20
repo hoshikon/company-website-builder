@@ -53,7 +53,7 @@ object Home {
       "A", nbsp, span(`class` := "text-primary", "Secure"), ","
     ),
     div(`class` := "row text-right display-4",
-      span(`class` := "text-primary", "Hight-performace")
+      span(`class` := "text-primary", "High Performace")
     ),
     div(`class` := "row text-right display-4",
       "and", nbsp, span(`class` := "text-primary", "Modular")

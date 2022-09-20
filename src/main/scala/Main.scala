@@ -15,7 +15,7 @@ object Main extends IOApp with StrictLogging {
       docsDir <- createHtmlDir(docsPath)
       index <- IO(Files.createFile(docsPath.resolve("index.html")).toFile)
       style <- IO(Files.createFile(docsPath.resolve("style.css")).toFile)
-      html = Home("SamuraiDev")
+      html = Home("Hoshiko Tech Ltd.")
       _ <- Resource.make(IO.blocking(new FileOutputStream(index)))(fos => IO.blocking(fos.close())).use(fos => IO(fos.write(html.render.getBytes())))
       _ <- Resource.make(IO.blocking(new FileOutputStream(style)))(fos => IO.blocking(fos.close())).use(fos => IO(fos.write(Style.styleSheetText.getBytes())))
       done = ExitCode.Success
